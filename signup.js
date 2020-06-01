@@ -18,11 +18,11 @@ router.get('/',(req,res)=>{
 router.post('/',(req,res)=>{
     
     const person=new signup();
-    person.email=req.body.email;
-    person.name=req.body.name;
+    person.email=req.app.get('email');
+    person.name=req.app.get('name');
     person.password=req.body.password;
-    console.log("name hai"+name);
-    console.log("email hai"+email);
+    console.log("name hai"+req.app.get('name'));
+    console.log("email hai"+req.app.get('email'));
    
     signup.findOne({email :person.email})
             .then(signup=>{

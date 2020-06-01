@@ -19,12 +19,18 @@ app.use('/signup',signup);
 
 app.use('/forgot',forgot)
 
+
+
 app.get('/',(req,res)=>{
    
      res.sendFile(`${__dirname}/view/approval-front/index.html`);
     
     
     
+});
+app.post('/create',(req,res)=>{
+    app.set('name',req.body.Bd);
+    app.set('email',req.body.Du);
 });
 app.post('/',(req,res)=>{
    const person=new login();
